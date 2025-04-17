@@ -1,30 +1,33 @@
 const fs = window.Filer.fs;
 const cdnUrl = "https://raw.githubusercontent.com/Xylara/Dusk-cdn/refs/heads/master/"
+//gets set in window
 
 
+async function mkdirRec() {
+
+}
 async function createFileFromUrl(location, url) {
     let data =  await fetch(url)
     let dtext = await data.text()
 
-    await fs.writeFile(location, dtext)
+    await dusk.crFile(location, dtext)
 }
 // Create base directories
 async function setupFilesystem() {
-    await fs.mkdir(`/bin`);
-    await fs.mkdir(`/etc`);
-    await fs.mkdir(`/home`);
-    await fs.mkdir(`/lib`);
-    await fs.mkdir(`/tmp`);
-
+    await dusk.mkdir(`/bin`);
+    await dusk.mkdir(`/etc`);
+    await dusk.mkdir(`/home`);
+    await dusk.mkdir(`/lib`);
+    await dusk.mkdir(`/tmp`);
     console.log(`created skelleton for rootfs`)
 
-    await fs.mkdir(`/bin/firefox`);
-    await fs.mkdir(`/bin/firefox/uv`);
-    await fs.mkdir(`/bin/firefox/scram`);
-    await fs.mkdir(`/bin/firefox/assets`)
-    await fs.mkdir(`/bin/firefox/assets/css`);
-    await fs.mkdir(`/bin/firefox/assets/js`);
-    await fs.mkdir(`/bin/firefox/assets/svg`);
+    await dusk.mkdir(`/bin/firefox`);
+    await dusk.mkdir(`/bin/firefox/uv`);
+    await dusk.mkdir(`/bin/firefox/scram`);
+    await dusk.mkdir(`/bin/firefox/assets`)
+    await dusk.mkdir(`/bin/firefox/assets/css`);
+    await dusk.mkdir(`/bin/firefox/assets/js`);
+    await dusk.mkdir(`/bin/firefox/assets/svg`);
 
     console.log(`created browser skelleton`)
 
