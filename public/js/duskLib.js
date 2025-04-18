@@ -45,9 +45,10 @@ async function deletePathRec(path) {
 }
 
 
-var dusk = {
-    mkdir: makeFolderRec,
-    crFile: makeFileRec,
-    rm: deletePathRec
+self.dusk = {
+    fs: {
+        mkdir: makeFolderRec,
+        crFile: makeFileRec,
+        rm: deletePathRec
+    }
 }
-dusk.rm("/pain/")
