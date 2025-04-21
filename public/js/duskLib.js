@@ -44,8 +44,16 @@ async function deletePathRec(path) {
     });
 }
 
-
+// for use normaly
 self.dusk = {
+    fs: {
+        mkdir: makeFolderRec,
+        crFile: makeFileRec,
+        rm: deletePathRec
+    }
+}
+// persists across reloads
+navigator.dusk = {
     fs: {
         mkdir: makeFolderRec,
         crFile: makeFileRec,
